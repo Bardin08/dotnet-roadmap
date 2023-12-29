@@ -81,18 +81,23 @@ algorithms.
 - Objective: Develop a Tic-Tac-Toe. The game should feature a leaderboard to track wins, losses, and draws.
 
 - Requirements:
-  - Gameplay: Implement the classic 3x3 grid gameplay.
-  - Player Input: Allow two players to input their moves.
-  - Win Logic: Include logic to determine the winner or a draw.
-  - Leaderboard:
-    - Store the results of each game (win/loss/draw) for each player in a file.
-    - Display the leaderboard at the beginning or end of each game session.
-  - File Operations:
-    - Use file handling to read and write leaderboard data. 
-    - Ensure data persistence across game sessions. 
-  - Additional Challenges:
-    - Implement an AI opponent. 
-    - Add an option to reset the leaderboard.
+    - Gameplay: Implement the classic 3x3 grid gameplay.
+    - Player Input: Allow two players to input their moves.
+    - Win Logic: Include logic to determine the winner or a draw.
+    - Leaderboard:
+        - Store the results of each game (win/loss/draw) for each player in a file.
+        - Display the leaderboard at the beginning or end of each game session.
+    - File Operations:
+        - Use file handling to read and write leaderboard data.
+        - Ensure data persistence across game sessions.
+    - Additional Challenges:
+        - Implement an AI opponent.
+        - Add an option to reset the leaderboard.
+
+### LINQ Practice
+
+For a comprehensive list of [LINQ](./Practice/LINQ.md) practice tasks, refer to the LINQ Tasks File. This resource provides a variety of
+scenarios to apply LINQ in practical, real-world examples.
 
 ## Assessment
 
