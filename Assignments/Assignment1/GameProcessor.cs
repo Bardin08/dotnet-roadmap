@@ -14,21 +14,26 @@ internal class GameProcessor(
         {   
             _currentPlayer = _currentPlayer == players.p1 ? players.p2 : players.p1;
 
-            MoveDescriptor? move;
-            do
-            {
-                move = inputProvider.GetMove(GameField.Size);
+            DoStep(gameField);
 
-                if (!gameField.IsEmpty(move.Row, move.Col))
-                {
-                    Console.WriteLine("Cell is not empty! Choose another one!");
-                }
-            } while (!gameField.IsEmpty(move.Row, move.Col));
-
-            gameField.SetSymbol(move.Row, move.Col, _currentPlayer.Symbol);
             Console.WriteLine(gameField);
         }
 
         return new GameResult(_currentPlayer);
+    }
+
+    private void DoStep(GameField gameField)
+    {
+        bool isSuccess;
+        do
+        {
+            var move = inputProvider.GetMove(GameField.Size);
+            isSuccess = gameField.TrySetSymbol(move.Row, move.Col, _currentPlayer.Symbol);
+
+            if (!isSuccess)
+            {
+                Console.WriteLine("Input invalid or cell is already taken!");
+            }
+        } while (!isSuccess);
     }
 }

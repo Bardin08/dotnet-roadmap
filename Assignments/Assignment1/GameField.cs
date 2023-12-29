@@ -7,35 +7,25 @@ internal class GameField
     public const int Size = 3;
 
     private int _movesAmount;
-    private readonly List<List<char>> _field;
-
-    public GameField()
-    {
-        _field =
-        [
-            [' ', ' ', ' '],
-            [' ', ' ', ' '],
-            [' ', ' ', ' ']
-        ];
-
-        for (var row = 0; row < Size; row++)
+    private readonly List<List<char>> _field = Enumerable.Range(0, Size)
+        .Select(_ =>
         {
-            for (var col = 0; col < Size; col++)
-            {
-                _field[row][col] = ' ';
-            }
-        }
-    }
+            return Enumerable.Range(0, Size)
+                .Select(_ => ' ')
+                .ToList();
+        })
+        .ToList();
 
-    public void SetSymbol(int row, int col, char symbol)
+    public bool TrySetSymbol(int row, int col, char symbol)
     {
+        if (!IsCellEmpty(row, col))
+        {
+            return false;
+        }
+
         _field[row][col] = symbol;
         _movesAmount++;
-    }
-
-    public bool IsEmpty(int row, int col)
-    {
-        return _field[row][col] is ' ';
+        return true;
     }
 
     public bool IsGameFieldComplete()
@@ -48,6 +38,11 @@ internal class GameField
         var allLines = GetRowsAndCols().Concat(GetDiagonals());
         return allLines.Any(x => new HashSet<char>(x) is { Count: 1 } set &&
                                  !set.Contains(' '));
+    }
+
+    private bool IsCellEmpty(int row, int col)
+    {
+        return _field[row][col] is ' ';
     }
 
     private IEnumerable<IEnumerable<char>> GetRowsAndCols()
