@@ -6,7 +6,6 @@ internal class GameProcessor(
 {
     private PlayerDescriptor _currentPlayer = players.p2;
 
-    // TODO: Replace object with actual game result
     internal GameResult Play()
     {
         var gameField = new GameField();
