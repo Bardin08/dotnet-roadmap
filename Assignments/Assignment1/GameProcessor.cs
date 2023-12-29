@@ -18,7 +18,11 @@ internal class GameProcessor(
             Console.WriteLine(gameField);
         }
 
-        return new GameResult(_currentPlayer);
+        var gameResult = gameField.IsDraw.GetValueOrDefault()
+            ? new GameResult()
+            : new GameResult(_currentPlayer);
+
+        return gameResult;
     }
 
     private void DoStep(GameField gameField)

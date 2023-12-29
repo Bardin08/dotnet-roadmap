@@ -6,7 +6,10 @@ internal class GameField
 {
     public const int Size = 3;
 
+    internal bool? IsDraw { get; private set; }
+
     private int _movesAmount;
+
     private readonly List<List<char>> _field = Enumerable.Range(0, Size)
         .Select(_ =>
         {
@@ -30,14 +33,26 @@ internal class GameField
 
     public bool IsGameFieldComplete()
     {
-        if (_movesAmount is 9)
+        if (IsWinnerAppeared())
         {
             return true;
         }
 
+        if (_movesAmount is 9)
+        {
+            IsDraw = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsWinnerAppeared()
+    {
         var allLines = GetRowsAndCols().Concat(GetDiagonals());
+
         return allLines.Any(x => new HashSet<char>(x) is { Count: 1 } set &&
-                                 !set.Contains(' '));
+                                   !set.Contains(' '));
     }
 
     private bool IsCellEmpty(int row, int col)
