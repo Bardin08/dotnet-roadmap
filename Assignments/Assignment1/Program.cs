@@ -2,9 +2,11 @@
 
 var playersProvider = new PlayersProvider();
 var userInputProvider = new UserInputProvider();
+var leaderboard = new Leaderboard();
 
 var processor = new TicTacToeProcessor(
     playersProvider,
-    userInputProvider);
+    userInputProvider,
+    leaderboard);
 
 processor.Process();
