@@ -1,4 +1,5 @@
 ﻿using Assignment1;
+using Assignment1.Core;
 
 var playersProvider = new PlayersProvider();
 var userInputProvider = new UserInputProvider();

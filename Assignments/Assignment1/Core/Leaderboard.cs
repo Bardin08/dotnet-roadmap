@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Assignment1;
+namespace Assignment1.Core;
 
 internal class Leaderboard
 {

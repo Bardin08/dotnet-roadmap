@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Assignment1;
+namespace Assignment1.Core;
 
 internal class GameField
 {

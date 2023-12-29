@@ -1,4 +1,4 @@
-﻿namespace Assignment1;
+﻿namespace Assignment1.Core;
 
 internal class UserInputProvider
 {

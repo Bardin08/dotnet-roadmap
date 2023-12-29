@@ -1,4 +1,4 @@
-﻿namespace Assignment1;
+﻿namespace Assignment1.Core;
 
 internal readonly record struct PlayerDescriptor(string Name, char Symbol)
 {
