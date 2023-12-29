@@ -5,7 +5,7 @@
 ### Usages
 
 This section outlines the classes and their relationships in a console-based Tic-Tac-Toe game.
-![General architecture](./docs/Diagram.png)
+![General architecture](./docs/usings.png)
 
 The `TicTacToeProcessor` serves as the entry point, orchestrating gameplay by coordinating with other components.
 `GameProcessor` manages the core game logic and state, while `PlayersProvider` and `UserInputProvider` handle player
