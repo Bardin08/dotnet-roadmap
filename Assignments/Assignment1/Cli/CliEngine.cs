@@ -1,12 +1,11 @@
 using System.CommandLine;
-using System.CommandLine.Parsing;
 using Assignment1.Cli.Commands;
 
 namespace Assignment1.Cli;
 
 internal class CliEngine
 {
-    internal static void Execute()
+    internal void Execute()
     {
         var rootCommand = new RootCommand();
         rootCommand.AddCommand(new PlayCommand().GetDefinition());
@@ -15,7 +14,8 @@ internal class CliEngine
 
         while (true)
         {
-            var input = Console.ReadLine();
+            var input = GetInput();
+
             if (string.IsNullOrEmpty(input))
             {
                 const string errorMessage = "Input can't be null. Please, write a valid command";
@@ -24,5 +24,14 @@ internal class CliEngine
 
             rootCommand.Invoke(input!);
         }
+    }
+
+    private string? GetInput()
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("> ");
+        var input = Console.ReadLine();
+        Console.ResetColor();
+        return input;
     }
 }
