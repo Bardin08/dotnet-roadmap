@@ -1,13 +1,3 @@
-﻿using Assignment1;
-using Assignment1.Core;
+﻿using Assignment1.Cli;
 
-var playersProvider = new PlayersProvider();
-var userInputProvider = new UserInputProvider();
-var leaderboard = new Leaderboard();
-
-var processor = new TicTacToeProcessor(
-    playersProvider,
-    userInputProvider,
-    leaderboard);
-
-processor.Process();
+CliEngine.Execute();
