@@ -14,12 +14,29 @@ internal class TicTacToeProcessor(
 
         var players = playersProvider.GetPlayers();
 
-        leaderboard.AddIfNotExists(players.p1);
-        leaderboard.AddIfNotExists(players.p2);
+        EnsurePlayerInLeaderboard(players.p1);
+        EnsurePlayerInLeaderboard(players.p2);
 
         var gameProcessor = new GameProcessor(inputProvider, players);
         var gameResult = gameProcessor.Play();
 
+        UpdateLeaderboard(gameResult, players);
+        leaderboard.PrintLeaderboard();
+    }
+
+    private void EnsurePlayerInLeaderboard(PlayerDescriptor player)
+    {
+        var playerAdded = leaderboard.AddIfNotExists(player);
+        if (!playerAdded)
+        {
+            Console.WriteLine("Welcome back, {0}", player.Name);
+        }
+    }
+
+    private void UpdateLeaderboard(
+        GameResult gameResult,
+        (PlayerDescriptor p1, PlayerDescriptor p2) players)
+    {
         if (gameResult.Winner is null)
         {
             Console.WriteLine("It's a draw!");
@@ -41,6 +58,5 @@ internal class TicTacToeProcessor(
         }
 
         leaderboard.Save();
-        leaderboard.PrintLeaderboard();
     }
 }

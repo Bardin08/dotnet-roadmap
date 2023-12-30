@@ -8,12 +8,20 @@ internal class Leaderboard
 
     private readonly Dictionary<string, LeaderboardRecord> _leaderboardRecords = new();
 
-    internal void AddIfNotExists(PlayerDescriptor player)
+    /// <summary>
+    ///  Adds player to leaderboard there is no record for him
+    /// </summary>
+    /// <param name="player">Player descriptor</param>
+    /// <returns>Returns true if player is new, else false</returns>
+    internal bool AddIfNotExists(PlayerDescriptor player)
     {
         if (!_leaderboardRecords.ContainsKey(player.Name))
         {
             _leaderboardRecords.Add(player.Name, new LeaderboardRecord(player.Name));
+            return true;
         }
+
+        return false;
     }
 
     internal void Update(PlayerDescriptor player, bool? isWinner)
