@@ -11,6 +11,7 @@ internal class CliEngine
         var rootCommand = new RootCommand();
         rootCommand.AddCommand(new PlayCommand().GetDefinition());
         rootCommand.AddCommand(new ExitCommand().GetDefinition());
+        rootCommand.AddCommand(new LeaderboardCommand().GetDefinition());
 
         while (true)
         {
