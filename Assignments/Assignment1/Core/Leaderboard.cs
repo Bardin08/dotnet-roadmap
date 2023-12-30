@@ -4,6 +4,8 @@ namespace Assignment1.Core;
 
 internal class Leaderboard
 {
+    private const string Path = "../leaderboard.json";
+
     private readonly Dictionary<string, LeaderboardRecord> _leaderboardRecords = new();
 
     internal void AddIfNotExists(PlayerDescriptor player)
@@ -28,7 +30,29 @@ internal class Leaderboard
 
     internal void Save()
     {
-        const string path = "../leaderboard.json";
-        File.WriteAllText(path, JsonSerializer.Serialize(_leaderboardRecords));
+        File.WriteAllText(Path, JsonSerializer.Serialize(_leaderboardRecords));
+    }
+
+    internal void Load()
+    {
+        _leaderboardRecords.Clear();
+        var json = File.ReadAllText(Path);
+
+        var records = JsonSerializer.Deserialize<Dictionary<string, LeaderboardRecord>>(json);
+        foreach (var record in records!)
+        {
+            _leaderboardRecords.Add(record.Key, record.Value);
+        }
+    }
+
+    internal void PrintLeaderboard()
+    {
+        Console.WriteLine("{0,-10} {1,5} {2,5} {3,5}", "Player", "Wins", "Loses", "Draws");
+        Console.WriteLine(new string('-', 30));
+
+        foreach (var record in _leaderboardRecords.Values)
+        {
+            Console.WriteLine("{0,-10} {1,5} {2,5} {3,5}", record.Player, record.Wins, record.Loses, record.Draws);
+        }
     }
 }

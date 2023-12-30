@@ -9,6 +9,9 @@ internal class TicTacToeProcessor(
 {
     internal void Process()
     {
+        leaderboard.Load();
+        leaderboard.PrintLeaderboard();
+
         var players = playersProvider.GetPlayers();
 
         leaderboard.AddIfNotExists(players.p1);
@@ -38,6 +41,6 @@ internal class TicTacToeProcessor(
         }
 
         leaderboard.Save();
-        Console.WriteLine(JsonSerializer.Serialize(leaderboard));
+        leaderboard.PrintLeaderboard();
     }
 }
