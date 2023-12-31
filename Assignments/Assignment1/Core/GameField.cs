@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using DeepCopy;
 
 namespace Assignment1.Core;
 
@@ -18,6 +19,17 @@ internal class GameField
                 .ToList();
         })
         .ToList();
+
+    /// <summary>
+    /// <b>DO NOT USE THIS METHOD</b> <br/>
+    /// This method is designed to redo the step and used by minimax
+    /// evaluation algorithm to avoid cloning boards all the time
+    /// </summary>
+    internal void ForceSetSymbol(int row, int col, char symbol)
+    {
+        _field[row][col] = symbol;
+        _movesAmount++;
+    }
 
     public bool TrySetSymbol(int row, int col, char symbol)
     {
@@ -47,15 +59,23 @@ internal class GameField
         return false;
     }
 
+    internal char? GetWinnerSymbol()
+    {
+        var allLines = GetRowsAndCols().Concat(GetDiagonals());
+        var completedThree = allLines.FirstOrDefault(x => new HashSet<char>(x) is { Count: 1 } set &&
+                                                          !set.Contains(' '));
+        return completedThree?.First();
+    }
+
     private bool IsWinnerAppeared()
     {
         var allLines = GetRowsAndCols().Concat(GetDiagonals());
 
         return allLines.Any(x => new HashSet<char>(x) is { Count: 1 } set &&
-                                   !set.Contains(' '));
+                                 !set.Contains(' '));
     }
 
-    private bool IsCellEmpty(int row, int col)
+    internal bool IsCellEmpty(int row, int col)
     {
         return _field[row][col] is ' ';
     }
@@ -79,6 +99,11 @@ internal class GameField
             .ToList();
 
         return [mainDiagonal, reversedDiagonal];
+    }
+
+    public GameField DeepCopy()
+    {
+        return DeepCopier.Copy(this);
     }
 
     public override string ToString()
