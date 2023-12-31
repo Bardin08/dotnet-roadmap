@@ -75,7 +75,7 @@ internal class GameField
                                  !set.Contains(' '));
     }
 
-    internal bool IsCellEmpty(int row, int col)
+    private bool IsCellEmpty(int row, int col)
     {
         return _field[row][col] is ' ';
     }

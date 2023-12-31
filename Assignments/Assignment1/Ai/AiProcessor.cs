@@ -13,9 +13,8 @@ internal class AiProcessor(PlayerDescriptor ai)
         {
             for (int col = 0; col < GameField.Size; col++)
             {
-                if (gameField.IsCellEmpty(row, col))
+                if (gameField.TrySetSymbol(row, col, ai.Symbol))
                 {
-                    gameField.TrySetSymbol(row, col, ai.Symbol);
                     var score = Minimax(gameField.DeepCopy(), isMaximizing: false);
 
                     if (score > bestScore)
@@ -59,15 +58,13 @@ internal class AiProcessor(PlayerDescriptor ai)
         Func<int, int, int> scoreEvaluator)
     {
         var best = baseScore;
-        var invertedSymbol = GetOpponentSymbol(symbol);
 
         for (var row = 0; row < GameField.Size; row++)
         {
             for (var col = 0; col < GameField.Size; col++)
             {
-                if (gameField.IsCellEmpty(row, col))
+                if (gameField.TrySetSymbol(row, col, symbol))
                 {
-                    gameField.TrySetSymbol(row, col, symbol);
                     var newScore = Minimax(gameField, !isMaximizing);
                     best = scoreEvaluator(best, newScore);
                     gameField.ForceSetSymbol(row, col, ' ');
