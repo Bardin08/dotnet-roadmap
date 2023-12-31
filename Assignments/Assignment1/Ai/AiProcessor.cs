@@ -8,15 +8,17 @@ internal class AiProcessor(PlayerDescriptor ai)
     {
         var bestScore = int.MinValue;
         MoveDescriptor move = null!;
-        
-        for (int row = 0; row < GameField.Size; row++)
-        {
-            for (int col = 0; col < GameField.Size; col++)
-            {
-                if (gameField.TrySetSymbol(row, col, ai.Symbol))
-                {
-                    var score = Minimax(gameField.DeepCopy(), isMaximizing: false);
 
+        for (var row = 0; row < GameField.Size; row++)
+        {
+            for (var col = 0; col < GameField.Size; col++)
+            {
+                var field = gameField.DeepCopy();
+                if (field.TrySetSymbol(row, col, ai.Symbol))
+                {
+                    var score = Minimax(field, 0, isMaximizing: false);
+                    field.ForceSetSymbol(row, col, ' ');       
+                    
                     if (score > bestScore)
                     {
                         move = new MoveDescriptor(row, col);
@@ -29,13 +31,18 @@ internal class AiProcessor(PlayerDescriptor ai)
         return move;
     }
 
-    private int Minimax(GameField gameField, bool isMaximizing)
+    private int Minimax(GameField gameField, int depth, bool isMaximizing)
     {
         var score = Evaluate(gameField);
 
-        if (score is 1 or -1)
+        var winnerSymbol = gameField.GetWinnerSymbol();
+        if (winnerSymbol == ai.Symbol)
         {
-            return score;
+            return 10 - depth;
+        }
+        else if (winnerSymbol == GetOpponentSymbol(ai.Symbol))
+        {
+            return depth - 10;
         }
 
         if (gameField.IsDraw.GetValueOrDefault())
@@ -43,21 +50,16 @@ internal class AiProcessor(PlayerDescriptor ai)
             return 0;
         }
 
-        var baseScore = isMaximizing ? int.MinValue : int.MaxValue;
-        Func<int, int, int> scoreEvaluator = isMaximizing ? Math.Max : Math.Min;
-        var symbol = isMaximizing ? ai.Symbol : GetOpponentSymbol(ai.Symbol);
-
-        return MinimaxInternal(gameField, isMaximizing, symbol, baseScore, scoreEvaluator);
+        return MinimaxInternal(gameField, depth, isMaximizing);
     }
 
     private int MinimaxInternal(
         GameField gameField,
-        bool isMaximizing,
-        char symbol,
-        int baseScore,
-        Func<int, int, int> scoreEvaluator)
+        int depth,
+        bool isMaximizing)
     {
-        var best = baseScore;
+        var best = isMaximizing ? int.MinValue : int.MaxValue;
+        var symbol = isMaximizing ? ai.Symbol : GetOpponentSymbol(ai.Symbol);
 
         for (var row = 0; row < GameField.Size; row++)
         {
@@ -65,8 +67,8 @@ internal class AiProcessor(PlayerDescriptor ai)
             {
                 if (gameField.TrySetSymbol(row, col, symbol))
                 {
-                    var newScore = Minimax(gameField, !isMaximizing);
-                    best = scoreEvaluator(best, newScore);
+                    var newScore = Minimax(gameField, depth + 1, !isMaximizing);
+                    best = isMaximizing ? Math.Max(best, newScore) : Math.Min(best, newScore);
                     gameField.ForceSetSymbol(row, col, ' ');
                 }
             }
@@ -84,7 +86,7 @@ internal class AiProcessor(PlayerDescriptor ai)
 
         var winner = gameField.GetWinnerSymbol();
 
-        return winner == ai.Symbol ? 1 : -1;
+        return winner == ai.Symbol ? 10 : -10;
     }
 
     private char GetOpponentSymbol(char current)
