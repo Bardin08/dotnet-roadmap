@@ -17,11 +17,34 @@ internal class PlayCommand : ICommandDefinition
             Description = "This command executes tic-tac-toe logic",
         };
 
-        command.SetHandler(Play);
+        var aiCommand = new Command("ai")
+        {
+            Description = "This command starts game with AI"
+        };
+        aiCommand.SetHandler(PlayWithAi);
+        command.AddCommand(aiCommand);
+        
+        var twoPlayersCommand = new Command("real-opponent")
+        {
+            Description = "This command starts game for 2 players"
+        };
+        twoPlayersCommand.SetHandler(PlayTwoPlayers);
+        command.AddCommand(twoPlayersCommand);
+        
         return command;
     }
 
-    private static void Play()
+    private static void PlayWithAi()
+    {
+        Play(GameMode.AiOpponent);
+    }
+    
+    private static void PlayTwoPlayers()
+    {
+        Play(GameMode.TwoPlayers);
+    }
+    
+    private static void Play(GameMode mode)
     {
         var playersProvider = new PlayersProvider();
         var userInputProvider = new UserInputProvider();
@@ -30,7 +53,8 @@ internal class PlayCommand : ICommandDefinition
         var processor = new TicTacToeProcessor(
             playersProvider,
             userInputProvider,
-            leaderboard);
+            leaderboard,
+            mode);
 
         processor.Process();
     }

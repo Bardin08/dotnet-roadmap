@@ -7,6 +7,11 @@ internal class PlayersProvider
         return (GetPlayerInfo('X'), GetPlayerInfo('O'));
     }
 
+    internal (PlayerDescriptor p1, PlayerDescriptor p2) GetPlayerAndAi()
+    {
+        return (GetPlayerInfo('X'), GetAiPlayerDescriptor('O'));
+    }
+
     private PlayerDescriptor GetPlayerInfo(char symbol)
     {
         PlayerDescriptor? descriptor = null;
@@ -27,6 +32,16 @@ internal class PlayersProvider
             };
         } while (descriptor is null);
 
-        return descriptor.Value;
+        return descriptor;
+    }
+
+    private PlayerDescriptor GetAiPlayerDescriptor(char symbol)
+    {
+        return new PlayerDescriptor()
+        {
+            Name = "ai",
+            Symbol = symbol,
+            IsAi = true
+        };
     }
 }
