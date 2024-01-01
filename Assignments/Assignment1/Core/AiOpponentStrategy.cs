@@ -4,7 +4,7 @@ namespace Assignment1.Core;
 
 internal class AiOpponentStrategy(UserInputProvider inputProvider) : BaseStrategy
 {
-    private AiProcessor _aiProcessor = null!;
+    private AiProcessor? _aiProcessor;
 
     public override void DoStep(GameField gameField, PlayerDescriptor player)
     {

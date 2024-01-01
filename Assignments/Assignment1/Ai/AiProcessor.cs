@@ -4,93 +4,84 @@ namespace Assignment1.Ai;
 
 internal class AiProcessor(PlayerDescriptor ai)
 {
+    private readonly char _aiSymbol = ai.Symbol;
+    private readonly char _opponentSymbol = ai.Symbol == 'O' ? 'X' : 'O';
+
     internal MoveDescriptor GetMove(GameField gameField)
     {
-        var bestScore = int.MinValue;
         MoveDescriptor move = null!;
+        var score = int.MinValue;
+        var availableMoves = gameField.GetAvailableMoves();
 
-        for (var row = 0; row < GameField.Size; row++)
+        foreach (var availableMove in availableMoves)
         {
-            for (var col = 0; col < GameField.Size; col++)
+            if (!gameField.TrySetSymbol(availableMove.Row, availableMove.Col, _aiSymbol))
+                continue;
+
+            var newScore = Minimax(gameField, false, 0);
+            gameField.ForceSetSymbol(availableMove.Row, availableMove.Col, ' ');
+
+            if (newScore > score)
             {
-                var field = gameField.DeepCopy();
-                if (field.TrySetSymbol(row, col, ai.Symbol))
-                {
-                    var score = Minimax(field, 0, isMaximizing: false);
-                    field.ForceSetSymbol(row, col, ' ');       
-                    
-                    if (score > bestScore)
-                    {
-                        move = new MoveDescriptor(row, col);
-                        bestScore = score;
-                    }
-                }
+                score = newScore;
+                move = new MoveDescriptor(availableMove);
             }
         }
 
         return move;
     }
 
-    private int Minimax(GameField gameField, int depth, bool isMaximizing)
+    private int Minimax(GameField gameField, bool isMaximizing, int depth)
     {
-        var score = Evaluate(gameField);
+        if (gameField.IsGameFieldComplete())
+            return Evaluate(gameField, depth);
 
-        var winnerSymbol = gameField.GetWinnerSymbol();
-        if (winnerSymbol == ai.Symbol)
+        if (isMaximizing)
         {
-            return 10 - depth;
-        }
-        else if (winnerSymbol == GetOpponentSymbol(ai.Symbol))
-        {
-            return depth - 10;
-        }
+            var score = int.MinValue;
 
-        if (gameField.IsDraw.GetValueOrDefault())
-        {
-            return 0;
-        }
-
-        return MinimaxInternal(gameField, depth, isMaximizing);
-    }
-
-    private int MinimaxInternal(
-        GameField gameField,
-        int depth,
-        bool isMaximizing)
-    {
-        var best = isMaximizing ? int.MinValue : int.MaxValue;
-        var symbol = isMaximizing ? ai.Symbol : GetOpponentSymbol(ai.Symbol);
-
-        for (var row = 0; row < GameField.Size; row++)
-        {
-            for (var col = 0; col < GameField.Size; col++)
+            foreach (var availableMove in gameField.GetAvailableMoves())
             {
-                if (gameField.TrySetSymbol(row, col, symbol))
+                if (gameField.TrySetSymbol(availableMove.Row, availableMove.Col, _aiSymbol))
                 {
-                    var newScore = Minimax(gameField, depth + 1, !isMaximizing);
-                    best = isMaximizing ? Math.Max(best, newScore) : Math.Min(best, newScore);
-                    gameField.ForceSetSymbol(row, col, ' ');
+                    score = Math.Max(score, Minimax(gameField, false, depth + 1));
+                    gameField.ForceSetSymbol(availableMove.Row, availableMove.Col, ' ');
                 }
             }
-        }
 
-        return best;
+            return score;
+        }
+        else
+        {
+            var score = int.MaxValue;
+
+            foreach (var availableMove in gameField.GetAvailableMoves())
+            {
+                if (gameField.TrySetSymbol(availableMove.Row, availableMove.Col, _opponentSymbol))
+                {
+                    score = Math.Min(score, Minimax(gameField, true, depth + 1));
+                    gameField.ForceSetSymbol(availableMove.Row, availableMove.Col, ' ');
+                }
+            }
+
+            return score;
+        }
     }
 
-    private int Evaluate(GameField gameField)
+    private int Evaluate(GameField gameField, int depth)
     {
         if (!gameField.IsGameFieldComplete())
         {
-            return 0;
+            throw new ArgumentException("Uncompleted board can't be evaluated");
         }
 
         var winner = gameField.GetWinnerSymbol();
+        if (winner == _aiSymbol)
+            return 10 - depth;
 
-        return winner == ai.Symbol ? 10 : -10;
-    }
+        if (winner == _opponentSymbol)
+            return -10 + depth;
 
-    private char GetOpponentSymbol(char current)
-    {
-        return current is 'X' ? 'O' : 'X';
+        return 0;
     }
 }
