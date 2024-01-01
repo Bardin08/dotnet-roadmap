@@ -28,7 +28,7 @@ internal class GameField
     internal void ForceSetSymbol(int row, int col, char symbol)
     {
         _field[row][col] = symbol;
-        _movesAmount++;
+        _movesAmount--;
     }
 
     public bool TrySetSymbol(int row, int col, char symbol)
@@ -47,6 +47,7 @@ internal class GameField
     {
         if (IsWinnerAppeared())
         {
+            IsDraw = false;
             return true;
         }
 
@@ -59,6 +60,30 @@ internal class GameField
         return false;
     }
 
+    internal List<MoveDescriptor> GetAvailableMoves()
+    {
+        const int maxMoves = Size * Size;
+        if (_movesAmount >= maxMoves)
+        {
+            return [];
+        }
+
+        var availableCells = new List<MoveDescriptor>(maxMoves - _movesAmount);
+
+        for (var row = 0; row < Size; row++)
+        {
+            for (var col = 0; col < Size; col++)
+            {
+                if (IsCellEmpty(row, col))
+                {
+                    availableCells.Add(new MoveDescriptor(row, col));
+                }
+            }
+        }
+
+        return availableCells;
+    }
+    
     internal char? GetWinnerSymbol()
     {
         var allLines = GetRowsAndCols().Concat(GetDiagonals());
