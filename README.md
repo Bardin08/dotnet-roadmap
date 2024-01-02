@@ -107,7 +107,7 @@ TBA
 
 TBA
 
-Community and Support 🌐
+## Community and Support 🌐
 
 Join our vibrant and supportive .NET community! Whether you're a newbie or a seasoned developer, find camaraderie, insights, and help in our group. 🤝
 
