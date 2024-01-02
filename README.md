@@ -105,7 +105,8 @@ TBA
 
 ## Additional Resources
 
-TBA
+### Algorithms
+  - [Grokking Algorithms An Illustrated Guide For Programmers and Other Curious People](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230)
 
 ## Community and Support 🌐
 
