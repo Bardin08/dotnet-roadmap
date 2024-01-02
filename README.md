@@ -107,10 +107,16 @@ TBA
 
 TBA
 
-## Community and Support
+## Community and Support 🌐
 
-TBA
+Join our vibrant and supportive .NET community! Whether you're a newbie or a seasoned developer, find camaraderie, insights, and help in our group. 🤝
 
-## Feedback
+Telegram Group: Connect in real-time, share your .NET experiences, and get support. Everyone's welcome! Join us on Telegram 💬👥
+Let's grow together in the world of .NET! Your questions, contributions, and enthusiasm drive our community forward. 🚀🌟
 
-TBA
+## Feedback 📝
+
+Your thoughts and suggestions are invaluable to us! 🌟 If you have any feedback, ideas, or experiences you'd like to share about the .NET Roadmap, please let us know.
+
+Share Your Thoughts: Whether it's a suggestion for improvement, a success story, or a challenge you faced, your input helps us grow and improve. 🚀
+We're committed to making this roadmap as effective and user-friendly as possible. Your feedback is a crucial part of this journey! 💬👍
