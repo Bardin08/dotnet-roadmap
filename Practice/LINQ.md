@@ -122,7 +122,153 @@ Console.WriteLine("Aggregated: " + aggregated);
 
 ## Easy 🔥🔥
 
-TBA
+
+| LINQ Method        | Description                                                                    | MSDN Link                                                                                                 |
+|--------------------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Where              | Filters a sequence of values based on a predicate                              | [Where](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where)                         |
+| Select             | Projects each element of a sequence into a new form                            | [Select](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select)                       |
+| OrderBy            | Sorts the elements of a sequence in ascending order                            | [OrderBy](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderby)                     |
+| OrderByDescending  | Sorts the elements of a sequence in descending order                           | [OrderByDescending](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderbydescending) |
+| GroupBy            | Groups the elements of a sequence based on a key selector                      | [GroupBy](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupby)                     |
+| Join               | Joins two sequences based on matching keys                                     | [Join](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.join)                           |
+| Count              | Returns the number of elements in a sequence                                   | [Count](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count)                         |
+| Any                | Determines whether any element of a sequence satisfies a condition             | [Any](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any)                             |
+| Take               | Returns a specified number of contiguous elements from the start of a sequence | [Take](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.take)                           |
+| Distinct           | Returns distinct elements from a sequence                                      | [Distinct](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.distinct)                   |
+
+### Task 1: Filter Even Numbers
+
+**Description**: Filter a list of integers to select only even numbers.
+
+```csharp
+List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+var evenNumbers = ___;
+Console.WriteLine(string.Join(",", evenNumbers))
+```
+
+### Task 2: Find Longest Word
+
+**Description**: Find the longest word in a list of strings.
+
+```csharp
+List<string> words = new List<string> { "apple", "banana", "orange", "grapefruit" };
+var longestWord = ___;
+Console.WriteLine("Longest word: " + longestWord);
+```
+
+### Task 3: Calculate Average
+
+**Description**: Calculate the average of a list of decimal numbers.
+
+```csharp
+List<decimal> decimals = new List<decimal> { 2.5m, 3.7m, 1.9m, 4.2m };
+var average = ___;
+Console.WriteLine("Average: " + average);
+```
+
+### Task 4: Group by Property
+
+**Description**: Group a list of objects by a specific property.
+
+```csharp
+public record Person(string name, int age, string country);
+
+List<Person> people = new List<Person>
+{
+    new Person { Name = "Alice", Age = 25, Country = "USA" },
+    new Person { Name = "Bob", Age = 30, Country = "UK" },
+    new Person { Name = "Charlie", Age = 22, Country = "USA" },
+    new Person { Name = "David", Age = 35, Country = "Canada" },
+    new Person { Name = "Emily", Age = 28, Country = "UK" }
+};
+
+var grouped = ___;
+foreach (var group in grouped)
+{
+    Console.WriteLine("Group: " + group.Key);
+    foreach (var item in group)
+    {
+        Console.WriteLine(item);
+    }
+}
+```
+
+### Task 5: Join Lists
+
+**Description**: Join two lists based on a common property.
+
+```csharp
+public record Person(string name, int age, string country);
+
+List<Person> people1 = new List<Person>
+{
+    new Person { Name = "Alice", Country = "USA" },
+    new Person { Name = "Bob", Country = "UK" },
+    new Person { Name = "Charlie", Country = "USA" }
+};
+
+List<Person> people2 = new List<Person>
+{
+    new Person { Name = "David", Country = "Canada" },
+    new Person { Name = "Emily", Country = "UK" }
+};
+
+var joined = ___;
+foreach (var pair in joined)
+{
+    Console.WriteLine($"Item from list 1: {pair.Item1}, Item from list 2: {pair.Item2}");
+}
+```
+
+### Task 6: Sort Alphabetically
+
+**Description**: Sort a list of strings alphabetically.
+
+```csharp
+List<string> strings = new List<string> { "banana", "apple", "orange", "grape" };
+var sorted = ___;
+Console.WriteLine(string.Join(",", sorted))
+```
+
+### Task 7: Select Distinct
+
+**Description**: Select distinct elements from a list.
+
+```csharp
+List<int> numbers = new List<int> { 1, 2, 2, 3, 3, 4, 4, 5, 5 };
+var distinctNumbers = ___;
+Console.WriteLine(string.Join(",", distinctNumbers))
+```
+
+### Task 8: Retrieve Top 5 Highest Values
+
+**Description**: Retrieve the top 5 highest values from a list of integers.
+
+```csharp
+List<int> numbers = new List<int> { 10, 5, 8, 3, 12, 15, 6, 7, 9, 2 };
+var top5 = ___;
+Console.WriteLine(string.Join(",", top5))
+```
+
+### Task 9: Check Condition
+
+**Description**: Check if any element in a list satisfies a specific condition.
+
+```csharp
+List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+var anyGreaterThan3 = ___;
+Console.WriteLine("Any number greater than 3: " + anyGreaterThan3);
+```
+
+### Task 10: Convert to Uppercase
+
+**Description**: Convert a list of strings to uppercase.
+
+```csharp
+List<string> words = new List<string> { "apple", "banana", "orange" };
+var uppercasedWords = ___;
+Console.WriteLine(string.Join(",", uppercasedWords`))
+```
 
 ## Medium 🔥🔥🔥
 
