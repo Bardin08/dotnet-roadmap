@@ -8,16 +8,16 @@ a practical way to enhance your LINQ skills.
 
 Here's a table with a brief description of each LINQ method and links to their MSDN documentation:
 
-| Method             | Description                                                            | MSDN Link                                                                                            |
-|--------------------|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `Sum()`            | Calculates the sum of a sequence of numeric values.                    | [Sum](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.sum)                       |
-| `Where()`          | Filters a sequence based on a predicate.                               | [Where](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where)                   |
-| `OrderBy()`        | Sorts the elements of a sequence in ascending order.                   | [OrderBy](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderby)               |
-| `Count()`          | Counts the elements in a sequence, optionally with a predicate.        | [Count](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count)                   |
-| `Max()`            | Finds the maximum value in a sequence.                                 | [Max](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.max)                       |
-| `Distinct()`       | Returns distinct elements from a sequence.                             | [Distinct](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.distinct)             |
-| `FirstOrDefault()` | Returns the first element of a sequence, or a default value if empty.  | [FirstOrDefault](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.firstordefault) |
-| `Aggregate()`      | Applies an accumulator function over a sequence.                       | [Aggregate](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.aggregate)           |
+| Method             | Description                                                           | MSDN Link                                                                                            |
+|--------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| `Sum()`            | Calculates the sum of a sequence of numeric values.                   | [Sum](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.sum)                       |
+| `Where()`          | Filters a sequence based on a predicate.                              | [Where](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where)                   |
+| `OrderBy()`        | Sorts the elements of a sequence in ascending order.                  | [OrderBy](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderby)               |
+| `Count()`          | Counts the elements in a sequence, optionally with a predicate.       | [Count](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count)                   |
+| `Max()`            | Finds the maximum value in a sequence.                                | [Max](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.max)                       |
+| `Distinct()`       | Returns distinct elements from a sequence.                            | [Distinct](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.distinct)             |
+| `FirstOrDefault()` | Returns the first element of a sequence, or a default value if empty. | [FirstOrDefault](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.firstordefault) |
+| `Aggregate()`      | Applies an accumulator function over a sequence.                      | [Aggregate](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.aggregate)           |
 
 ### Task 1: Find the Sum
 
@@ -122,19 +122,18 @@ Console.WriteLine("Aggregated: " + aggregated);
 
 ## Easy 🔥🔥
 
-
-| LINQ Method        | Description                                                                    | MSDN Link                                                                                                 |
-|--------------------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| Where              | Filters a sequence of values based on a predicate                              | [Where](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where)                         |
-| Select             | Projects each element of a sequence into a new form                            | [Select](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select)                       |
-| OrderBy            | Sorts the elements of a sequence in ascending order                            | [OrderBy](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderby)                     |
-| OrderByDescending  | Sorts the elements of a sequence in descending order                           | [OrderByDescending](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderbydescending) |
-| GroupBy            | Groups the elements of a sequence based on a key selector                      | [GroupBy](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupby)                     |
-| Join               | Joins two sequences based on matching keys                                     | [Join](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.join)                           |
-| Count              | Returns the number of elements in a sequence                                   | [Count](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count)                         |
-| Any                | Determines whether any element of a sequence satisfies a condition             | [Any](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any)                             |
-| Take               | Returns a specified number of contiguous elements from the start of a sequence | [Take](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.take)                           |
-| Distinct           | Returns distinct elements from a sequence                                      | [Distinct](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.distinct)                   |
+| LINQ Method       | Description                                                                    | MSDN Link                                                                                                 |
+|-------------------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Where             | Filters a sequence of values based on a predicate                              | [Where](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where)                         |
+| Select            | Projects each element of a sequence into a new form                            | [Select](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select)                       |
+| OrderBy           | Sorts the elements of a sequence in ascending order                            | [OrderBy](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderby)                     |
+| OrderByDescending | Sorts the elements of a sequence in descending order                           | [OrderByDescending](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderbydescending) |
+| GroupBy           | Groups the elements of a sequence based on a key selector                      | [GroupBy](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupby)                     |
+| Join              | Joins two sequences based on matching keys                                     | [Join](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.join)                           |
+| Count             | Returns the number of elements in a sequence                                   | [Count](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count)                         |
+| Any               | Determines whether any element of a sequence satisfies a condition             | [Any](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any)                             |
+| Take              | Returns a specified number of contiguous elements from the start of a sequence | [Take](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.take)                           |
+| Distinct          | Returns distinct elements from a sequence                                      | [Distinct](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.distinct)                   |
 
 ### Task 1: Filter Even Numbers
 
@@ -286,7 +285,8 @@ Console.WriteLine(string.Join(",", uppercasedWords`))
 
 ### Task 4: Group and Count
 
-**Description**: Given a list of transactions, group them by product name and count the number of transactions for each product.
+**Description**: Given a list of transactions, group them by product name and count the number of transactions for each
+product.
 
 ### Task 5: Calculate Running Total
 
@@ -298,7 +298,8 @@ Console.WriteLine(string.Join(",", uppercasedWords`))
 
 ### Task 7: Combine and Filter
 
-**Description**: Given two lists of objects, combine them into a single list, then filter out elements based on certain criteria.
+**Description**: Given two lists of objects, combine them into a single list, then filter out elements based on certain
+criteria.
 
 ### Task 8: Manipulate Date and Time
 
@@ -306,12 +307,68 @@ Console.WriteLine(string.Join(",", uppercasedWords`))
 
 ### Task 9: Partition Data
 
-**Description**: Given a list of integers, partition the data into two groups: one containing even numbers and the other containing odd numbers.
+**Description**: Given a list of integers, partition the data into two groups: one containing even numbers and the other
+containing odd numbers.
 
 ### Task 10: Handle Null Values
 
-**Description**: Given a list of objects that may contain null values, filter out the null values and perform an operation on the non-null values.
+**Description**: Given a list of objects that may contain null values, filter out the null values and perform an
+operation on the non-null values.
 
 ## Advanced 🔥🔥🔥🔥
 
-TBA
+### Tasks to Create Your Own LINQ Implementation:
+
+1. **Understanding LINQ Operators**: Familiarize yourself with the standard LINQ operators such
+   as `Where`, `Select`, `OrderBy`, `GroupBy`, etc. Understand their behavior and the expected output.
+
+2. **Implementing Query Operators**: Start by implementing basic query operators such as `Where` and `Select`. These
+   operators should filter and transform data, respectively, similar to their LINQ counterparts.
+
+3. **Supporting Deferred Execution**: Ensure that your LINQ implementation supports deferred execution, meaning that
+   query operations are not executed until the result is needed.
+
+4. **Handling Iterators**: Implement iterators to iterate over collections and apply query operators. This involves
+   implementing custom iterator methods such as `GetEnumerator`, `MoveNext`, and `Current`.
+
+5. **Testing and Debugging**: Test your LINQ implementation thoroughly with various data sets and edge cases. Debug any
+   issues that arise and ensure that the results match the expected behavior of LINQ operators.
+
+6. **Optimizing Performance**: Optimize your LINQ implementation for performance by minimizing unnecessary iterations
+   and avoiding excessive memory allocations. Use techniques such as lazy evaluation and caching to improve performance.
+
+### Useful Resources for LINQ Concepts:
+
+1. **Microsoft Docs**: The official documentation for LINQ provides comprehensive explanations of LINQ concepts and
+   operators. [LINQ (Language-Integrated Query)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/)
+
+2. **LINQ Tutorial**: Follow a LINQ tutorial to learn how LINQ works and how to use it effectively in C#. There are many
+   tutorials available online that cover LINQ basics and advanced topics.
+
+3. **Books on LINQ**: Consider reading books dedicated to LINQ programming, such as "LINQ Pocket Reference" by Joseph
+   Albahari and Ben Albahari. These books provide in-depth coverage of LINQ concepts and techniques.
+
+### Useful Resources for Understanding Iterators and Deferred Execution:
+
+1. **Microsoft Docs - Iterators (C# Programming Guide)**: Learn about iterators in C# and how to use them to implement
+   custom enumerable collections. [Iterators (C# Programming Guide)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/iterators)
+
+2. **Microsoft Docs - Deferred Execution (LINQ to Objects)**: Understand deferred execution in LINQ and how it impacts
+   query execution. [Deferred Execution (LINQ to Objects)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/deferred-execution-linq-to-objects)
+
+### Avoiding Tons of Enumerators:
+
+1. **Use `yield return`**: When implementing custom iterators, use the `yield return` statement to return elements one
+   at a time without creating multiple enumerables.
+
+2. **Reuse Iterators**: Instead of creating new iterators for each LINQ operation, consider reusing existing iterators
+   to minimize memory overhead.
+
+3. **Optimize Query Execution**: Combine multiple LINQ operations into a single query to avoid unnecessary iterations
+   and intermediate collections.
+
+4. **Use `IEnumerable<T>` and `IEnumerator<T>`**: Implement custom collections and iterators using the `IEnumerable<T>`
+   and `IEnumerator<T>` interfaces to ensure compatibility with LINQ operators and deferred execution.
+
+By following these tasks and utilizing the recommended resources, you can create your own LINQ implementation and gain a
+deeper understanding of LINQ concepts and programming techniques in C#.
