@@ -272,7 +272,45 @@ Console.WriteLine(string.Join(",", uppercasedWords`))
 
 ## Medium 🔥🔥🔥
 
-TBA
+### Task 1: Find Common Elements
+
+**Description**: Given two lists of integers, find the common elements between them.
+
+### Task 2: Aggregate Nested Collections
+
+**Description**: Given a list of orders, each containing a list of order items, calculate the total cost of each order.
+
+### Task 3: Find Top N Students
+
+**Description**: Given a list of students with their scores, find the top N students based on their scores.
+
+### Task 4: Group and Count
+
+**Description**: Given a list of transactions, group them by product name and count the number of transactions for each product.
+
+### Task 5: Calculate Running Total
+
+**Description**: Given a list of numbers, calculate the running total (cumulative sum) of the numbers.
+
+### Task 6: Find Anagrams
+
+**Description**: Given a list of strings, find all pairs of strings that are anagrams of each other.
+
+### Task 7: Combine and Filter
+
+**Description**: Given two lists of objects, combine them into a single list, then filter out elements based on certain criteria.
+
+### Task 8: Manipulate Date and Time
+
+**Description**: Given a list of dates, find the difference in days between each consecutive pair of dates.
+
+### Task 9: Partition Data
+
+**Description**: Given a list of integers, partition the data into two groups: one containing even numbers and the other containing odd numbers.
+
+### Task 10: Handle Null Values
+
+**Description**: Given a list of objects that may contain null values, filter out the null values and perform an operation on the non-null values.
 
 ## Advanced 🔥🔥🔥🔥
 
