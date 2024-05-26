@@ -5,7 +5,7 @@
   syntax and basic programming concepts.
 
 ## **Topics:**
-- Introduction to .NET:
+- [Introduction to .NET](./intro_to_dotnet.md):
   - Ecosystem of the .NET
   - .NET runtime
   - Libraries
