@@ -73,6 +73,7 @@ algorithms.
     - [Refactoring](https://refactoring.guru/refactoring)
     - [GoF patterns](https://refactoring.guru/design-patterns/csharp). DO NOT TRY TO REMEMBER ALL OF THEM. JUST READ
       ACROSS TO KNOW WHERE TO SEARCH IN CASE OF NEED.
+    - [Scaler Blogs](https://www.scaler.com/blog/dot-net-developer-skills/). Navigate your tech career with expert-crafted roadmaps and insights.
 
 ## Practice and Projects
 
